@@ -47,7 +47,7 @@ namespace puzzle15
 
 
         //Verschiebelogik
-        private int indexOfFreeGrid;    //index des leeren Feldes
+        private int indexLeeresFeld;    //index des leeren Feldes
         private int anzMoves;   // mitzählen
 
 
@@ -96,7 +96,7 @@ namespace puzzle15
             berechneGridPositionen();
 
             createChips();
-            indexOfFreeGrid = gridPositionen.Length - 1;
+            indexLeeresFeld = gridPositionen.Length - 1;
 
             
         }
@@ -214,26 +214,26 @@ namespace puzzle15
 	// Implementierung der Verschiebelogik
         void control_MouseClick(object sender, MouseEventArgs e)
         { 
-            Control activeControl = sender as Control;
+            Control currentChip = sender as Control;
 
             // Verschiebelogik
-            int feldNrAlt;  // In welchem Feld ist der aktive Chip?
+            int ausgangsFeld;  // In welchem Feld ist der aktive Chip?
             bool allowMove; //darf das aktuelle Control überhaupt bewegt werden?
 
-            feldNrAlt = feldNummer(activeControl.Location);
+            ausgangsFeld = feldNummer(currentChip.Location);
 
             // array mit jenen indizes, die vom aktuellen feld aus erreicht werden können
             int[] zielIndizes = new int[4];
-            zielIndizes[0] = feldNrAlt - gridcount;
-            zielIndizes[1] = feldNrAlt - 1;
-            zielIndizes[2] = feldNrAlt + gridcount;
-            zielIndizes[3] = feldNrAlt + 1;
+            zielIndizes[0] = ausgangsFeld - gridcount;
+            zielIndizes[1] = ausgangsFeld - 1;
+            zielIndizes[2] = ausgangsFeld + gridcount;
+            zielIndizes[3] = ausgangsFeld + 1;
 
             //Control darf nur bewegt werden, wenn der Index des freien Feldes im obigen Array auftaucht
             allowMove = false;
             for (int i = 0; i < 4; i++)
             {
-                if (indexOfFreeGrid == zielIndizes[i])
+                if (indexLeeresFeld == zielIndizes[i])
                 {
                     allowMove = true;
                     break;
@@ -241,8 +241,8 @@ namespace puzzle15
             }
             if (allowMove)
             {
-                activeControl.Location = gridPositionen[indexOfFreeGrid];
-                indexOfFreeGrid = feldNrAlt;
+                currentChip.Location = gridPositionen[indexLeeresFeld];
+                indexLeeresFeld = ausgangsFeld;
                 anzMoves++;
             }
 
