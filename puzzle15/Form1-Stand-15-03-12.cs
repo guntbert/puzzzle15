@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace puzzle15
 {
-        /* Ablauf
+    /* Ablauf
      * 
      * +) Platzaufteilung, Geometrie: adjustFormsize, 
      *          berechneGridPositionen, feldnummer
@@ -98,7 +98,7 @@ namespace puzzle15
             createChips();
             indexOfFreeGrid = gridPositionen.Length - 1;
 
-            
+
         }
 
         private void createChips()
@@ -137,7 +137,7 @@ namespace puzzle15
             while (ClientSize.Height < ziel)
                 Height++;
         }
-            // Berechnen der gridcount*gridcount Positionen für die Labels und speichern im globalen Array gridPositionen
+        // Berechnen der gridcount*gridcount Positionen für die Labels und speichern im globalen Array gridPositionen
         private void berechneGridPositionen()
         {
             gridPositionen = new Point[gridcount * gridcount];
@@ -161,7 +161,7 @@ namespace puzzle15
                 gridPositionen[aktIndex].Y = zei * gridwidth + rand;
             }
         }
-
+     
         /// <summary>
        /// liefert aus den Koordinaten (z.B. der Loc)
        /// die Nummer des Feldes
@@ -211,9 +211,9 @@ namespace puzzle15
             }
         }
 
-	// Implementierung der Verschiebelogik
+        // Implementierung der Verschiebelogik
         void control_MouseClick(object sender, MouseEventArgs e)
-        { 
+        {
             Control activeControl = sender as Control;
 
             // Verschiebelogik
@@ -222,7 +222,7 @@ namespace puzzle15
 
             feldNrAlt = feldNummer(activeControl.Location);
 
-            // array mit jenen indizes, die vom aktuellen feld aus erreicht werden können
+            // array mit jenen indizes (Feldnummern), die vom aktuellen feld aus erreicht werden können
             int[] zielIndizes = new int[4];
             zielIndizes[0] = feldNrAlt - gridcount;
             zielIndizes[1] = feldNrAlt - 1;
@@ -245,9 +245,6 @@ namespace puzzle15
                 indexOfFreeGrid = feldNrAlt;
                 anzMoves++;
             }
-
         }
-
-
     }
 }
