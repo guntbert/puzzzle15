@@ -38,7 +38,7 @@ namespace puzzle15
         // Platzaufteilung
         private int gridwidth; // Breite einer Reihe (Chips sind um 2*rand kleiner)
         private int rand;   // Rand um jedes Label
-        private int gridcount; // Anzahl Reihen
+        private int anzReihen; // Anzahl Reihen
         private int ganzOben; // alles auf dem Spielfeld beginnt hier - unter dem Menu
         // alle möglichen Felder (Positionen für labels), in einem 1-dim Array
         private Point[] gridPositionen;
@@ -61,12 +61,25 @@ namespace puzzle15
         {
             gridwidth = 60;
             rand = 2;
-            gridcount = 4;
+            anzReihen = 4;
             ganzOben = mainMenu.Height;
             createZufallsListe();
             anzMoves = 0;
         }
 
+        private void restart()
+        {            
+            ganzOben = mainMenu.Height;
+            createZufallsListe();
+            anzMoves = 0;
+
+            adjustFormsize();
+            berechneGridPositionen();
+
+            createChips();
+            indexLeeresFeld = gridPositionen.Length - 1;
+
+        }
         private int nextNumber()
         {
             //für Nummern auf chips
@@ -83,7 +96,7 @@ namespace puzzle15
         {
             //vorbereitung für zufällige Nummernvergabe
             // nummern auf den Chips sollen "gezogen" werden
-            int anzChips = gridcount * gridcount - 1;
+            int anzChips = anzReihen * anzReihen - 1;
             numbers = new List<int>(anzChips);
             // Liste mit den möglichen Nummern
             for (int i = 1; i <= numbers.Capacity; i++)
@@ -94,13 +107,7 @@ namespace puzzle15
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            adjustFormsize();
-            berechneGridPositionen();
-
-            createChips();
-            indexLeeresFeld = gridPositionen.Length - 1;
-
-            
+            restart();          
         }
 
         private void createChips()
@@ -123,7 +130,7 @@ namespace puzzle15
                 lb.AutoSize = false;
                 lb.TextAlign = ContentAlignment.MiddleCenter;
 
-                //lb.MouseClick += new MouseEventHandler(control_MouseClick);
+                lb.MouseClick += new MouseEventHandler(control_MouseClick);
                 this.Controls.Add(lb);
             }
         }
@@ -131,7 +138,7 @@ namespace puzzle15
         //Anpassung der Größe der Form, damit Clientsize passt, wir beginnen "zu klein"
         private void adjustFormsize()
         {
-            int zielWidth =  gridcount * gridwidth;
+            int zielWidth =  anzReihen * gridwidth;
             int zielHeight = zielWidth +ganzOben;
             this.Width = zielWidth;
             this.Height = zielHeight;
@@ -140,26 +147,26 @@ namespace puzzle15
             while (ClientSize.Height < zielHeight)
                 Height++;
         }
-            // Berechnen der gridcount*gridcount Positionen für die Labels und speichern im globalen Array gridPositionen
+            // Berechnen der anzReihen*anzReihen Positionen für die Labels und speichern im globalen Array gridPositionen
         private void berechneGridPositionen()
         {
-            gridPositionen = new Point[gridcount * gridcount];
+            gridPositionen = new Point[anzReihen * anzReihen];
             // VAriante 1
-            for (int zei = 0; zei < gridcount; zei++)
-                for (int spa = 0; spa < gridcount; spa++)
+            for (int zei = 0; zei < anzReihen; zei++)
+                for (int spa = 0; spa < anzReihen; spa++)
                 {
-                    int aktIndex = spa + zei * gridcount;
+                    int aktIndex = spa + zei * anzReihen;
                     gridPositionen[aktIndex].X = spa * gridwidth + rand;
                     gridPositionen[aktIndex].Y = zei * gridwidth + rand+ganzOben;
                 }
             //Variante 2
-            // spa=index%gridcount
-            // zei=index/gridcount
+            // spa=index%anzReihen
+            // zei=index/anzReihen
             // damit genügt eine Schleife über gridPositionen
             for (int aktIndex = 0; aktIndex < gridPositionen.Length; aktIndex++)
             {
-                int spa = aktIndex % gridcount;
-                int zei = aktIndex / gridcount;
+                int spa = aktIndex % anzReihen;
+                int zei = aktIndex / anzReihen;
                 gridPositionen[aktIndex].X = spa * gridwidth + rand;
                 gridPositionen[aktIndex].Y = zei * gridwidth + rand+ganzOben;
             }
@@ -178,7 +185,7 @@ namespace puzzle15
             int fNr;
             zeile = p.Y / gridwidth;
             spalte = p.X / gridwidth;
-            fNr = zeile * gridcount + spalte;
+            fNr = zeile * anzReihen + spalte;
             return fNr;
         }
 
@@ -227,9 +234,9 @@ namespace puzzle15
 
             // array mit jenen indizes, die vom aktuellen feld aus erreicht werden können
             int[] zielIndizes = new int[4];
-            zielIndizes[0] = ausgangsFeld - gridcount;
+            zielIndizes[0] = ausgangsFeld - anzReihen;
             zielIndizes[1] = ausgangsFeld - 1;
-            zielIndizes[2] = ausgangsFeld + gridcount;
+            zielIndizes[2] = ausgangsFeld + anzReihen;
             zielIndizes[3] = ausgangsFeld + 1;
 
             //Control darf nur bewegt werden, wenn der Index des freien Feldes im obigen Array auftaucht
@@ -254,6 +261,21 @@ namespace puzzle15
         private void endeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void neuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            restart();
+        }
+
+        private void menuAnzReihen_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem selectedItem = (ToolStripMenuItem)sender;
+            int selectedNumber = Convert.ToInt32(selectedItem.Text);
+            anzReihen = selectedNumber;
+            selectedItem.Checked = true;
+            
+
         }
 
 
