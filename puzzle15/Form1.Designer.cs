@@ -73,6 +73,7 @@
             this.endeToolStripMenuItem.Name = "endeToolStripMenuItem";
             this.endeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.endeToolStripMenuItem.Text = "&Ende";
+            this.endeToolStripMenuItem.Click += new System.EventHandler(this.endeToolStripMenuItem_Click);
             // 
             // Form1
             // 

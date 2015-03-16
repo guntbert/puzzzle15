@@ -129,12 +129,13 @@ namespace puzzle15
         //Anpassung der Größe der Form, damit Clientsize passt, wir beginnen "zu klein"
         private void adjustFormsize()
         {
-            int ziel = gridcount * gridwidth;
-            this.Height = ziel;
-            this.Width = ziel;
-            while (ClientSize.Width < ziel)
+            int zielWidth =  gridcount * gridwidth;
+            int zielHeight = zielWidth + mainMenu.Height;
+            this.Width = zielWidth;
+            this.Height = zielHeight;
+            while (ClientSize.Width < zielWidth)
                 Width++;
-            while (ClientSize.Height < ziel)
+            while (ClientSize.Height < zielHeight)
                 Height++;
         }
             // Berechnen der gridcount*gridcount Positionen für die Labels und speichern im globalen Array gridPositionen
@@ -147,7 +148,7 @@ namespace puzzle15
                 {
                     int aktIndex = spa + zei * gridcount;
                     gridPositionen[aktIndex].X = spa * gridwidth + rand;
-                    gridPositionen[aktIndex].Y = zei * gridwidth + rand;
+                    gridPositionen[aktIndex].Y = zei * gridwidth + rand+mainMenu.Height;
                 }
             //Variante 2
             // spa=index%gridcount
@@ -158,7 +159,7 @@ namespace puzzle15
                 int spa = aktIndex % gridcount;
                 int zei = aktIndex / gridcount;
                 gridPositionen[aktIndex].X = spa * gridwidth + rand;
-                gridPositionen[aktIndex].Y = zei * gridwidth + rand;
+                gridPositionen[aktIndex].Y = zei * gridwidth + rand+mainMenu.Height;
             }
         }
 
@@ -246,6 +247,11 @@ namespace puzzle15
                 anzMoves++;
             }
 
+        }
+
+        private void endeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
 
