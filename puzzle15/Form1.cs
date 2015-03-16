@@ -39,6 +39,7 @@ namespace puzzle15
         private int gridwidth; // Breite einer Reihe (Chips sind um 2*rand kleiner)
         private int rand;   // Rand um jedes Label
         private int gridcount; // Anzahl Reihen
+        private int ganzOben; // alles auf dem Spielfeld beginnt hier - unter dem Menu
         // alle möglichen Felder (Positionen für labels), in einem 1-dim Array
         private Point[] gridPositionen;
 
@@ -61,6 +62,7 @@ namespace puzzle15
             gridwidth = 60;
             rand = 2;
             gridcount = 4;
+            ganzOben = mainMenu.Height;
             createZufallsListe();
             anzMoves = 0;
         }
@@ -130,7 +132,7 @@ namespace puzzle15
         private void adjustFormsize()
         {
             int zielWidth =  gridcount * gridwidth;
-            int zielHeight = zielWidth + mainMenu.Height;
+            int zielHeight = zielWidth +ganzOben;
             this.Width = zielWidth;
             this.Height = zielHeight;
             while (ClientSize.Width < zielWidth)
@@ -148,7 +150,7 @@ namespace puzzle15
                 {
                     int aktIndex = spa + zei * gridcount;
                     gridPositionen[aktIndex].X = spa * gridwidth + rand;
-                    gridPositionen[aktIndex].Y = zei * gridwidth + rand+mainMenu.Height;
+                    gridPositionen[aktIndex].Y = zei * gridwidth + rand+ganzOben;
                 }
             //Variante 2
             // spa=index%gridcount
@@ -159,7 +161,7 @@ namespace puzzle15
                 int spa = aktIndex % gridcount;
                 int zei = aktIndex / gridcount;
                 gridPositionen[aktIndex].X = spa * gridwidth + rand;
-                gridPositionen[aktIndex].Y = zei * gridwidth + rand+mainMenu.Height;
+                gridPositionen[aktIndex].Y = zei * gridwidth + rand+ganzOben;
             }
         }
 
@@ -195,7 +197,7 @@ namespace puzzle15
         /// <remarks>verwendet die Form-variable <c>gridwidth</c></remarks>
         private void drawRaster(Graphics g)
         {
-            Point startP = new Point(0, 0), endP = new Point(0, ClientSize.Height);
+            Point startP = new Point(0, ganzOben), endP = new Point(0, ClientSize.Height);
             for (int x = gridwidth; x < ClientSize.Width; x += gridwidth)
             {
                 startP.X = x;
@@ -204,7 +206,7 @@ namespace puzzle15
             }
             startP.X = 0;
             endP.X = ClientSize.Width;
-            for (int y = gridwidth; y < ClientSize.Height; y += gridwidth)
+            for (int y = gridwidth+ganzOben; y < ClientSize.Height; y += gridwidth)
             {
                 startP.Y = y;
                 endP.Y = y;
