@@ -33,6 +33,7 @@
             this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.anzahlReihenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +59,8 @@
             // 
             // einstellungenToolStripMenuItem
             // 
+            this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.anzahlReihenToolStripMenuItem});
             this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
             this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.einstellungenToolStripMenuItem.Text = "&Einstellungen";
@@ -74,6 +77,12 @@
             this.endeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.endeToolStripMenuItem.Text = "&Ende";
             this.endeToolStripMenuItem.Click += new System.EventHandler(this.endeToolStripMenuItem_Click);
+            // 
+            // anzahlReihenToolStripMenuItem
+            // 
+            this.anzahlReihenToolStripMenuItem.Name = "anzahlReihenToolStripMenuItem";
+            this.anzahlReihenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.anzahlReihenToolStripMenuItem.Text = "&Anzahl Reihen";
             // 
             // Form1
             // 
@@ -99,6 +108,7 @@
         private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem endeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem anzahlReihenToolStripMenuItem;
     }
 }
 
