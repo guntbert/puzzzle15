@@ -126,7 +126,7 @@ namespace puzzle15
             List<Control> toRemove = new List<Control>();
             foreach(Control c in this.Controls)
             {
-                if (c.Tag == "chip")
+                if ((string)c.Tag == "chip")
                     toRemove.Add(c);
             }
             foreach (Control c in toRemove)
