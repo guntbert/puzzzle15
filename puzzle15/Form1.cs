@@ -52,7 +52,7 @@ namespace puzzle15
         private int anzMoves;   // mitzählen
 
         // Fürs Menu Anzahl Reihen
-        private ToolStripMenuItem lastSelectedMenuItem ;
+        private ToolStripMenuItem lastSelectedMenuItem;
 
 
         public Form1()
@@ -73,7 +73,7 @@ namespace puzzle15
         }
 
         private void restart()
-        {            
+        {
             ganzOben = mnuMain.Height;
             createZufallsListe();
             anzMoves = 0;
@@ -112,7 +112,7 @@ namespace puzzle15
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            restart();          
+            restart();
         }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace puzzle15
             // foreach aus dem Tritt, daher eine neue Liste mit den zu entfernenden
             // und diese dann aus Controls entfernen
             List<Control> toRemove = new List<Control>();
-            foreach(Control c in this.Controls)
+            foreach (Control c in this.Controls)
             {
                 if ((string)c.Tag == "chip")
                     toRemove.Add(c);
@@ -161,8 +161,8 @@ namespace puzzle15
         //Anpassung der Größe der Form, damit Clientsize passt, wir beginnen "zu klein"
         private void adjustFormsize()
         {
-            int zielWidth =  anzReihen * gridwidth;
-            int zielHeight = zielWidth +ganzOben;
+            int zielWidth = anzReihen * gridwidth;
+            int zielHeight = zielWidth + ganzOben;
             this.Width = zielWidth;
             this.Height = zielHeight;
             while (ClientSize.Width < zielWidth)
@@ -170,7 +170,7 @@ namespace puzzle15
             while (ClientSize.Height < zielHeight)
                 Height++;
         }
-            // Berechnen der anzReihen*anzReihen Positionen für die Labels und speichern im globalen Array gridPositionen
+        // Berechnen der anzReihen*anzReihen Positionen für die Labels und speichern im globalen Array gridPositionen
         private void berechneGridPositionen()
         {
             gridPositionen = new Point[anzReihen * anzReihen];
@@ -180,7 +180,7 @@ namespace puzzle15
                 {
                     int aktIndex = spa + zei * anzReihen;
                     gridPositionen[aktIndex].X = spa * gridwidth + rand;
-                    gridPositionen[aktIndex].Y = zei * gridwidth + rand+ganzOben;
+                    gridPositionen[aktIndex].Y = zei * gridwidth + rand + ganzOben;
                 }
             //Variante 2
             // spa=index%anzReihen
@@ -191,17 +191,17 @@ namespace puzzle15
                 int spa = aktIndex % anzReihen;
                 int zei = aktIndex / anzReihen;
                 gridPositionen[aktIndex].X = spa * gridwidth + rand;
-                gridPositionen[aktIndex].Y = zei * gridwidth + rand+ganzOben;
+                gridPositionen[aktIndex].Y = zei * gridwidth + rand + ganzOben;
             }
         }
 
         /// <summary>
-       /// liefert aus den Koordinaten (z.B. der Loc)
-       /// die Nummer des Feldes
-       /// </summary>
-       /// <param name="p">Location, zu der die Feldnummer ermittelt werden soll</param>
-       /// <returns>Nummer des Feldes in dem p liegt</returns>
-       /// <remarks>Nummern beginnen bei 0, zeilenweise</remarks>
+        /// liefert aus den Koordinaten (z.B. der Loc)
+        /// die Nummer des Feldes
+        /// </summary>
+        /// <param name="p">Location, zu der die Feldnummer ermittelt werden soll</param>
+        /// <returns>Nummer des Feldes in dem p liegt</returns>
+        /// <remarks>Nummern beginnen bei 0, zeilenweise</remarks>
         private int feldNummer(Point p)
         {
             int zeile, spalte;
@@ -216,7 +216,7 @@ namespace puzzle15
         private void Form1_Paint(object sender, PaintEventArgs e)
         {        //zeichnet nur das rot/blaue grid
 
-            drawRaster( e.Graphics);
+            drawRaster(e.Graphics);
             this.Text = anzMoves.ToString();
         }
 
@@ -236,7 +236,7 @@ namespace puzzle15
             }
             startP.X = 0;
             endP.X = ClientSize.Width;
-            for (int y = gridwidth+ganzOben; y < ClientSize.Height; y += gridwidth)
+            for (int y = gridwidth + ganzOben; y < ClientSize.Height; y += gridwidth)
             {
                 startP.Y = y;
                 endP.Y = y;
@@ -244,9 +244,9 @@ namespace puzzle15
             }
         }
 
-	// Implementierung der Verschiebelogik
+        // Implementierung der Verschiebelogik
         void control_MouseClick(object sender, MouseEventArgs e)
-        { 
+        {
             Control currentChip = sender as Control;
 
             // Verschiebelogik
@@ -293,16 +293,16 @@ namespace puzzle15
 
         private void menuAnzReihen_Click(object sender, EventArgs e)
         {
-            lastSelectedMenuItem.Checked = false;
             ToolStripMenuItem selectedItem = (ToolStripMenuItem)sender;
-            int selectedNumber = Convert.ToInt32(selectedItem.Text);
-            anzReihen = selectedNumber;
-            selectedItem.Checked = true;
-            lastSelectedMenuItem = selectedItem;
-            
-
+            if (selectedItem != lastSelectedMenuItem) //nur, wenn wir die reihenzahl wirklich geändert haben
+            {
+                lastSelectedMenuItem.Checked = false;
+                int selectedNumber = Convert.ToInt32(selectedItem.Text);
+                anzReihen = selectedNumber;
+                selectedItem.Checked = true;
+                lastSelectedMenuItem = selectedItem;
+                restart();
+            }
         }
-
-
     }
 }
