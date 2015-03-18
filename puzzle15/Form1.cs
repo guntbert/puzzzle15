@@ -75,7 +75,7 @@ namespace puzzle15
 
             adjustFormsize();
             berechneGridPositionen();
-
+            deleteAllChips();
             createChips();
             indexLeeresFeld = gridPositionen.Length - 1;
 
@@ -110,6 +110,23 @@ namespace puzzle15
             restart();          
         }
 
+        /// <summary>
+        /// bei einem Neustart müssen zunächst alle Chips entfernt werden
+        /// </summary>
+        private void deleteAllChips()
+        {
+            // Wenn man in der Schleife chips aus Controls entfernt, kommt 
+            // foreach aus dem Tritt, daher eine neue Liste mit den zu entfernenden
+            // und diese dann aus Controls entfernen
+            List<Control> toRemove = new List<Control>();
+            foreach(Control c in this.Controls)
+            {
+                if (c.Tag == "chip")
+                    toRemove.Add(c);
+            }
+            foreach (Control c in toRemove)
+                this.Controls.Remove(c);
+        }
         private void createChips()
         {
             int anzChips = gridPositionen.Length - 1;
@@ -129,6 +146,7 @@ namespace puzzle15
                 //lb.Text = (nr + 1).ToString();
                 lb.AutoSize = false;
                 lb.TextAlign = ContentAlignment.MiddleCenter;
+                lb.Tag = "chip";
 
                 lb.MouseClick += new MouseEventHandler(control_MouseClick);
                 this.Controls.Add(lb);
