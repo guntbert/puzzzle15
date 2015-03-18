@@ -28,77 +28,119 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.endeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.einstellungenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.anzahlReihenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMain = new System.Windows.Forms.MenuStrip();
+            this.mnuSpiel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuNew = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEnde = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSettings = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAnzReihen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu3Reihen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu4Reihen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu5Reihen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu6Reihen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu7Reihen = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu8Reihen = new System.Windows.Forms.ToolStripMenuItem();
             this.tbZuege = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mainMenu.SuspendLayout();
+            this.mnuMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mainMenu
+            // mnuMain
             // 
-            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.einstellungenToolStripMenuItem,
+            this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSpiel,
+            this.mnuSettings,
             this.tbZuege});
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
-            this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(284, 27);
-            this.mainMenu.TabIndex = 0;
-            this.mainMenu.Text = "menu1";
+            this.mnuMain.Location = new System.Drawing.Point(0, 0);
+            this.mnuMain.Name = "mnuMain";
+            this.mnuMain.Size = new System.Drawing.Size(284, 27);
+            this.mnuMain.TabIndex = 0;
+            this.mnuMain.Text = "menu1";
             // 
-            // toolStripMenuItem1
+            // mnuSpiel
             // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem,
-            this.endeToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 23);
-            this.toolStripMenuItem1.Text = "&Spiel";
+            this.mnuSpiel.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuNew,
+            this.mnuEnde});
+            this.mnuSpiel.Name = "mnuSpiel";
+            this.mnuSpiel.Size = new System.Drawing.Size(44, 23);
+            this.mnuSpiel.Text = "&Spiel";
             // 
-            // neuToolStripMenuItem
+            // mnuNew
             // 
-            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.neuToolStripMenuItem.Text = "&Neu";
-            this.neuToolStripMenuItem.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
+            this.mnuNew.Name = "mnuNew";
+            this.mnuNew.Size = new System.Drawing.Size(152, 22);
+            this.mnuNew.Text = "&Neu";
+            this.mnuNew.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
-            // endeToolStripMenuItem
+            // mnuEnde
             // 
-            this.endeToolStripMenuItem.Name = "endeToolStripMenuItem";
-            this.endeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.endeToolStripMenuItem.Text = "&Ende";
-            this.endeToolStripMenuItem.Click += new System.EventHandler(this.endeToolStripMenuItem_Click);
+            this.mnuEnde.Name = "mnuEnde";
+            this.mnuEnde.Size = new System.Drawing.Size(152, 22);
+            this.mnuEnde.Text = "&Ende";
+            this.mnuEnde.Click += new System.EventHandler(this.endeToolStripMenuItem_Click);
             // 
-            // einstellungenToolStripMenuItem
+            // mnuSettings
             // 
-            this.einstellungenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.anzahlReihenToolStripMenuItem});
-            this.einstellungenToolStripMenuItem.Name = "einstellungenToolStripMenuItem";
-            this.einstellungenToolStripMenuItem.Size = new System.Drawing.Size(90, 23);
-            this.einstellungenToolStripMenuItem.Text = "&Einstellungen";
+            this.mnuSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAnzReihen});
+            this.mnuSettings.Name = "mnuSettings";
+            this.mnuSettings.Size = new System.Drawing.Size(90, 23);
+            this.mnuSettings.Text = "&Einstellungen";
             // 
-            // anzahlReihenToolStripMenuItem
+            // mnuAnzReihen
             // 
-            this.anzahlReihenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8});
-            this.anzahlReihenToolStripMenuItem.Name = "anzahlReihenToolStripMenuItem";
-            this.anzahlReihenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.anzahlReihenToolStripMenuItem.Text = "&Anzahl Reihen";
+            this.mnuAnzReihen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu3Reihen,
+            this.mnu4Reihen,
+            this.mnu5Reihen,
+            this.mnu6Reihen,
+            this.mnu7Reihen,
+            this.mnu8Reihen});
+            this.mnuAnzReihen.Name = "mnuAnzReihen";
+            this.mnuAnzReihen.Size = new System.Drawing.Size(152, 22);
+            this.mnuAnzReihen.Text = "&Anzahl Reihen";
+            // 
+            // mnu3Reihen
+            // 
+            this.mnu3Reihen.Name = "mnu3Reihen";
+            this.mnu3Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu3Reihen.Text = "3";
+            this.mnu3Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
+            // 
+            // mnu4Reihen
+            // 
+            this.mnu4Reihen.Name = "mnu4Reihen";
+            this.mnu4Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu4Reihen.Text = "4";
+            this.mnu4Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
+            // 
+            // mnu5Reihen
+            // 
+            this.mnu5Reihen.Name = "mnu5Reihen";
+            this.mnu5Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu5Reihen.Text = "5";
+            this.mnu5Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
+            // 
+            // mnu6Reihen
+            // 
+            this.mnu6Reihen.Name = "mnu6Reihen";
+            this.mnu6Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu6Reihen.Text = "6";
+            this.mnu6Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
+            // 
+            // mnu7Reihen
+            // 
+            this.mnu7Reihen.Name = "mnu7Reihen";
+            this.mnu7Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu7Reihen.Text = "7";
+            this.mnu7Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
+            // 
+            // mnu8Reihen
+            // 
+            this.mnu8Reihen.Name = "mnu8Reihen";
+            this.mnu8Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu8Reihen.Text = "8";
+            this.mnu8Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
             // 
             // tbZuege
             // 
@@ -107,55 +149,18 @@
             this.tbZuege.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tbZuege.ToolTipText = "Anzahl der Züge";
             // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem3.Text = "3";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.menuAnzReihen_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem4.Text = "4";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem5.Text = "5";
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem6.Text = "6";
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem7.Text = "7";
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem8.Text = "8";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.mainMenu);
-            this.MainMenuStrip = this.mainMenu;
+            this.Controls.Add(this.mnuMain);
+            this.MainMenuStrip = this.mnuMain;
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.mainMenu.ResumeLayout(false);
-            this.mainMenu.PerformLayout();
+            this.mnuMain.ResumeLayout(false);
+            this.mnuMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,19 +168,19 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem einstellungenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem endeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem anzahlReihenToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip mnuMain;
+        private System.Windows.Forms.ToolStripMenuItem mnuSpiel;
+        private System.Windows.Forms.ToolStripMenuItem mnuSettings;
+        private System.Windows.Forms.ToolStripMenuItem mnuNew;
+        private System.Windows.Forms.ToolStripMenuItem mnuEnde;
+        private System.Windows.Forms.ToolStripMenuItem mnuAnzReihen;
         private System.Windows.Forms.ToolStripTextBox tbZuege;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+        private System.Windows.Forms.ToolStripMenuItem mnu3Reihen;
+        private System.Windows.Forms.ToolStripMenuItem mnu4Reihen;
+        private System.Windows.Forms.ToolStripMenuItem mnu5Reihen;
+        private System.Windows.Forms.ToolStripMenuItem mnu6Reihen;
+        private System.Windows.Forms.ToolStripMenuItem mnu7Reihen;
+        private System.Windows.Forms.ToolStripMenuItem mnu8Reihen;
     }
 }
 
