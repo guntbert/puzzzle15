@@ -51,6 +51,9 @@ namespace puzzle15
         private int indexLeeresFeld;    //index des leeren Feldes
         private int anzMoves;   // mitzählen
 
+        // Fürs Menu Anzahl Reihen
+        private ToolStripMenuItem lastSelectedMenuItem ;
+
 
         public Form1()
         {
@@ -62,14 +65,16 @@ namespace puzzle15
             gridwidth = 60;
             rand = 2;
             anzReihen = 4;
-            ganzOben = mainMenu.Height;
+            mnu4Reihen.Checked = true;
+            lastSelectedMenuItem = mnu4Reihen;
+            ganzOben = mnuMain.Height;
             createZufallsListe();
             anzMoves = 0;
         }
 
         private void restart()
         {            
-            ganzOben = mainMenu.Height;
+            ganzOben = mnuMain.Height;
             createZufallsListe();
             anzMoves = 0;
 
@@ -288,10 +293,12 @@ namespace puzzle15
 
         private void menuAnzReihen_Click(object sender, EventArgs e)
         {
+            lastSelectedMenuItem.Checked = false;
             ToolStripMenuItem selectedItem = (ToolStripMenuItem)sender;
             int selectedNumber = Convert.ToInt32(selectedItem.Text);
             anzReihen = selectedNumber;
             selectedItem.Checked = true;
+            lastSelectedMenuItem = selectedItem;
             
 
         }
