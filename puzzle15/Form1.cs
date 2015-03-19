@@ -277,6 +277,7 @@ namespace puzzle15
                 currentChip.Location = gridPositionen[indexLeeresFeld];
                 indexLeeresFeld = ausgangsFeld;
                 anzMoves++;
+                tbZuege.Text = anzMoves.ToString();
             }
 
         }

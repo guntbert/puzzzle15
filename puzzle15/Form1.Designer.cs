@@ -46,12 +46,15 @@
             // 
             // mnuMain
             // 
+            this.mnuMain.AutoSize = false;
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSpiel,
             this.mnuSettings,
             this.tbZuege});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
+            this.mnuMain.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.mnuMain.ShowItemToolTips = true;
             this.mnuMain.Size = new System.Drawing.Size(284, 27);
             this.mnuMain.TabIndex = 0;
             this.mnuMain.Text = "menu1";
@@ -68,14 +71,14 @@
             // mnuNew
             // 
             this.mnuNew.Name = "mnuNew";
-            this.mnuNew.Size = new System.Drawing.Size(152, 22);
+            this.mnuNew.Size = new System.Drawing.Size(100, 22);
             this.mnuNew.Text = "&Neu";
             this.mnuNew.Click += new System.EventHandler(this.neuToolStripMenuItem_Click);
             // 
             // mnuEnde
             // 
             this.mnuEnde.Name = "mnuEnde";
-            this.mnuEnde.Size = new System.Drawing.Size(152, 22);
+            this.mnuEnde.Size = new System.Drawing.Size(100, 22);
             this.mnuEnde.Text = "&Ende";
             this.mnuEnde.Click += new System.EventHandler(this.endeToolStripMenuItem_Click);
             // 
@@ -97,56 +100,62 @@
             this.mnu7Reihen,
             this.mnu8Reihen});
             this.mnuAnzReihen.Name = "mnuAnzReihen";
-            this.mnuAnzReihen.Size = new System.Drawing.Size(152, 22);
+            this.mnuAnzReihen.Size = new System.Drawing.Size(149, 22);
             this.mnuAnzReihen.Text = "&Anzahl Reihen";
             // 
             // mnu3Reihen
             // 
             this.mnu3Reihen.Name = "mnu3Reihen";
-            this.mnu3Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu3Reihen.Size = new System.Drawing.Size(80, 22);
             this.mnu3Reihen.Text = "3";
             this.mnu3Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
             // 
             // mnu4Reihen
             // 
             this.mnu4Reihen.Name = "mnu4Reihen";
-            this.mnu4Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu4Reihen.Size = new System.Drawing.Size(80, 22);
             this.mnu4Reihen.Text = "4";
             this.mnu4Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
             // 
             // mnu5Reihen
             // 
             this.mnu5Reihen.Name = "mnu5Reihen";
-            this.mnu5Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu5Reihen.Size = new System.Drawing.Size(80, 22);
             this.mnu5Reihen.Text = "5";
             this.mnu5Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
             // 
             // mnu6Reihen
             // 
             this.mnu6Reihen.Name = "mnu6Reihen";
-            this.mnu6Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu6Reihen.Size = new System.Drawing.Size(80, 22);
             this.mnu6Reihen.Text = "6";
             this.mnu6Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
             // 
             // mnu7Reihen
             // 
             this.mnu7Reihen.Name = "mnu7Reihen";
-            this.mnu7Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu7Reihen.Size = new System.Drawing.Size(80, 22);
             this.mnu7Reihen.Text = "7";
             this.mnu7Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
             // 
             // mnu8Reihen
             // 
             this.mnu8Reihen.Name = "mnu8Reihen";
-            this.mnu8Reihen.Size = new System.Drawing.Size(152, 22);
+            this.mnu8Reihen.Size = new System.Drawing.Size(80, 22);
             this.mnu8Reihen.Text = "8";
             this.mnu8Reihen.Click += new System.EventHandler(this.menuAnzReihen_Click);
             // 
             // tbZuege
             // 
+            this.tbZuege.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tbZuege.AutoToolTip = true;
+            this.tbZuege.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.tbZuege.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbZuege.Name = "tbZuege";
+            this.tbZuege.ReadOnly = true;
+            this.tbZuege.ShortcutsEnabled = false;
             this.tbZuege.Size = new System.Drawing.Size(100, 23);
-            this.tbZuege.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbZuege.Text = "Spielzüge";
             this.tbZuege.ToolTipText = "Anzahl der Züge";
             // 
             // Form1
@@ -162,7 +171,6 @@
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
