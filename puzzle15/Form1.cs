@@ -117,7 +117,7 @@ namespace puzzle15
                 int selectedNumber = nextNumber();
                 lb.Text = selectedNumber.ToString();
                 // zunächst direkt nummeriren
-                //lb.Text = (nr + 1).ToString();
+                lb.Text = (nr + 1).ToString();
                 lb.AutoSize = false;
                 lb.TextAlign = ContentAlignment.MiddleCenter;
 
@@ -244,10 +244,27 @@ namespace puzzle15
                 currentChip.Location = gridPositionen[indexLeeresFeld];
                 indexLeeresFeld = ausgangsFeld;
                 anzMoves++;
+                if (isSolved())
+                    MessageBox.Show("TaTAA!");
             }
 
         }
 
-
+        private bool isSolved()
+        {
+            bool victory = true;
+            // Schleife über alle chips
+            foreach (Label chip in Controls)
+            {
+                Point l = chip.Location;
+                int feldNr = feldNummer(l)+1;
+                   if (chip.Text != feldNr.ToString())
+                    {
+                        victory = false;
+                        break;
+                    }
+             }
+            return victory;
+        }
     }
 }
