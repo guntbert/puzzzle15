@@ -223,11 +223,13 @@ namespace puzzle15
             ausgangsFeld = feldNummer(currentChip.Location);
 
             // array mit jenen indizes, die vom aktuellen feld aus erreicht werden können
-            int[] zielIndizes = new int[4];
+            int[] zielIndizes = new int[]{0,0,0,0};
             zielIndizes[0] = ausgangsFeld - gridcount;
-            zielIndizes[1] = ausgangsFeld - 1;
+            if ((ausgangsFeld%gridcount !=0))
+                zielIndizes[1] = ausgangsFeld - 1;
             zielIndizes[2] = ausgangsFeld + gridcount;
-            zielIndizes[3] = ausgangsFeld + 1;
+            if ((ausgangsFeld%gridcount !=3))
+                zielIndizes[3] = ausgangsFeld + 1;
 
             //Control darf nur bewegt werden, wenn der Index des freien Feldes im obigen Array auftaucht
             allowMove = false;
