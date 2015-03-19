@@ -121,7 +121,7 @@ namespace puzzle15
                 lb.AutoSize = false;
                 lb.TextAlign = ContentAlignment.MiddleCenter;
 
-                //lb.MouseClick += new MouseEventHandler(control_MouseClick);
+                lb.MouseClick += new MouseEventHandler(control_MouseClick);
                 this.Controls.Add(lb);
             }
         }
