@@ -31,6 +31,9 @@ namespace puzzle15
      * +) Ideen für Bewertung der Spielsituation sammeln
      * 
      * */
+
+    // RE Test für commit/push 17.4.2015 12:21
+
     public partial class Form1 : Form
     {
         Random rnd = new Random();
